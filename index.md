@@ -2,4 +2,4 @@
 
 ## Rasterização
 
-  ## Introdução
+## Introdução
