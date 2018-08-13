@@ -44,4 +44,106 @@ O algoritmo básico de Bresenham funciona apenas no primeiro octante, para que f
 
 ![useful image 3](/icg/octantesreal.gif)
 
+Outra limitação é que temos que escrever a linha da esquerda para a direita, isso pode ser facilmente manipulado caso o pixel inicial venha depois do final (dx < 0), simplesmente fazendo uma chamada recursiva com as posições trocadas:
 
+```markdown
+
+if(dx < 0){ DrawLine(v1,v0,c2,c1); return; }
+
+```
+
+Após manipulação das variáveis para seus respectivos octantes obtemos o resultado final:
+
+![useful image 4](/icg/screenshot-from-2017-09-10-21-42-16-e1505099482973.png)
+
+## Interpolação de Cores
+
+A interpolação de cores pode ser implementada modificando a porcentagem da cor RGBA inicial e a porcentagem da cor RGBA final, resultando numa nova e substituindo-a em cada pixel escrito por vez ao longo da linha, como observado aqui. A porcentagem é calculada dividindo a distância total da linha pela distância parcial do pixel a ser escrito.
+
+```markdown
+
+distT = Distance(v0, v1);
+distP = Distance(v, v1);
+
+percent = distT/distP;
+
+newColor.r = c1.r * percent + (1-percent) * c2.r;
+newColor.g = c1.g * percent + (1-percent) * c2.g;
+newColor.b = c1.b * percent + (1-percent) * c2.b;
+newColor.a = c1.a * percent + (1-percent) * c2.a;
+
+```
+
+Por exemplo, uma linha que inicia azul e termina verde tem a cor do primeiro pixel como:
+
+```markdown
+
+newColor = azul * 1.00 + verde * 0.00
+
+```
+
+A cor do pixel do meio da linha como:
+
+```markdown
+
+newColor = azul * 0.50 + verde * 0.50
+
+```
+
+E a cor do pixel final como:
+
+```markdown
+
+newColor = azul * 0.00 + verde * 1.00
+
+```
+
+A função Distance foi criada para facilitar o calculo das distâncias entre pixels, dado por:
+
+![useful image 5](/icg/cace1-distt.gif)
+
+## Função DrawTriangle
+
+A função recebe como parâmetro três vetores, e suas respectivas cores, a função cria um triângulo chamando a função DrawLine de um vetor a outro, formando um triângulo
+
+```markdown
+
+void DrawTriangle(vector v1, vector v2, vector v3, color c1, color c2, color c3){
+     DrawLine(v1, v2, c1, c2);
+     DrawLine(v2, v3, c2, c3);
+     DrawLine(v3, v1, c3, c1);
+}
+
+```
+
+Resultando em:
+
+![useful image 6](/icg/screenshot-from-2017-09-10-22-25-42-e1505101771971.png)
+
+## Função DrawFilledTriangle
+
+A função cria um triângulo preenchido, recebendo como parâmetro três vetores e suas respectivas cores. A função se trata da repetição da função DrawLine, porém ao escrever cada pixel, escreve uma linha que vai do pixel atual ao terceiro vetor do parâmetro.
+
+![useful image 7](/icg/screenshot-from-2017-09-10-22-32-30-e1505102073327.png)
+
+Podemos observar falhas em alguns pixels, eles podem ser preenchidos ao chamar a função algumas vezes, em diferentes combinações:
+
+```markdown
+
+DrawFilledTriangle(v1, v2, v3, red, blue, green);
+ DrawFilledTriangle(v3, v1, v2, green, red, blue);
+ DrawFilledTriangle(v2, v3, v1, blue, green, red);
+ 
+ ```
+ 
+ Também é possível criar uma função que simplesmente chama a função DrawFilledTriangle várias vezes, alternando os parâmetros de posição.
+ 
+ ## Referências
+ 
+ [Drawing Line Using Bresenham Algorithm](http://tech-algorithm.com/articles/drawing-line-using-bresenham-algorithm/)
+ 
+ [Generate n colors between two colors](https://stackoverflow.com/questions/17544157/generate-n-colors-between-two-colors)
+ 
+ [HexColorTool](https://www.hexcolortool.com/)
+ 
+ Slides do Profº Christian Pagot utilizados em aula
