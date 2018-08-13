@@ -7,4 +7,4 @@ Para representar cores em um computador, são utilizados 8 bits para cada compon
 
 Sendo assim, considerando que pixels são compostos por 4 canais, cada um com 8 bits de memória, temos então 32 bits de informação por pixel. Só nos resta então pintar os pixels na tela, pra isso basta escrever na memória de vídeo os valores de cada pixel. Porém nos computadores modernos, o acesso à memória de vídeo é restrito, e não é possível alterá-los facilmente. Por isso foi concedido o framework para realização desse trabalho.
 
-![useful image] (https://files.rgba.fm/logos/rgba_text_logo@2x.png)
+![useful image](/icg/rgba_text_logo@2x.png)
