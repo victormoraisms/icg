@@ -138,7 +138,7 @@ DrawFilledTriangle(v1, v2, v3, red, blue, green);
  
  Também é possível criar uma função que simplesmente chama a função DrawFilledTriangle várias vezes, alternando os parâmetros de posição.
  
- ## Referências
+## Referências
  
  [Drawing Line Using Bresenham Algorithm](http://tech-algorithm.com/articles/drawing-line-using-bresenham-algorithm/)
  
