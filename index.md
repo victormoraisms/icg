@@ -39,3 +39,9 @@ if(v.x < 0 || v.y < 0 || v.x > IMAGE_WIDTH || v.y > IMAGE_HEIGHT) return;
 A função utiliza o Algoritmo de Bresenham para rasterizar uma linha na tela, recebe dois vetores, um inicial e um final, e a cor de cada pixel.
 
 ![useful image 2](/icg/screenshot-from-2017-09-10-22-46-05-e1505095713992.png)
+
+O algoritmo básico de Bresenham funciona apenas no primeiro octante, para que funcione em todos precisamos manipular as variáveis de acordo com as propriedades observadas em cada octante:
+
+![useful image 3](/icg/octantesreal.gif)
+
+
