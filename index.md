@@ -25,3 +25,12 @@ void PutPixel(vector v, color c){
 }
 
 ```
+
+podemos adicionar um tratamento para caso as entradas ultrapassarem as bordas da tela :
+
+```markdown
+
+if(v.x < 0 || v.y < 0 || v.x > IMAGE_WIDTH || v.y > IMAGE_HEIGHT) return;
+
+```
+
