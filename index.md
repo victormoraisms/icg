@@ -8,3 +8,20 @@ Para representar cores em um computador, são utilizados 8 bits para cada compon
 Sendo assim, considerando que pixels são compostos por 4 canais, cada um com 8 bits de memória, temos então 32 bits de informação por pixel. Só nos resta então pintar os pixels na tela, pra isso basta escrever na memória de vídeo os valores de cada pixel. Porém nos computadores modernos, o acesso à memória de vídeo é restrito, e não é possível alterá-los facilmente. Por isso foi concedido o framework para realização desse trabalho.
 
 ![useful image](/icg/rgba_text_logo@2x.png)
+
+## Função PutPixel
+
+A função recebe um objeto da classe vetor e outro da classe cor, cada elemento das classes compõem um pixel que é rasterizado através do ponteiro FBptr que aponta para o pixel (0,0) do framebuffer. O pixel possui 4 componentes RGBA que criam sua cor.
+
+```markdown
+
+void PutPixel(vector v, color c){
+    int coordinates = 4*v.x + 4*v.y*IMAGE_WIDTH;
+
+    FBptr[coordinates + 0] = c.r;
+    FBptr[coordinates + 1] = c.g;
+    FBptr[coordinates + 2] = c.b;
+    FBptr[coordinates + 3] = c.a;
+}
+
+```
