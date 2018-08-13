@@ -34,3 +34,8 @@ if(v.x < 0 || v.y < 0 || v.x > IMAGE_WIDTH || v.y > IMAGE_HEIGHT) return;
 
 ```
 
+### Função DrawLine
+
+A função utiliza o Algoritmo de Bresenham para rasterizar uma linha na tela, recebe dois vetores, um inicial e um final, e a cor de cada pixel.
+
+![useful image 2](/icg/screenshot-from-2017-09-10-22-46-05-e1505095713992.png)
