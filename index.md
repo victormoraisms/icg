@@ -1,11 +1,11 @@
-## Trabalho 2 - Introdução
+## Trabalho 2
 Esta atividade consiste na implementação de todas as etapas do pipeline gráfico anteriores à rasterização, última etapa do processo. Inicialmente os modelos são descritos no espaço do objeto, um espaço mais adequado em extensão e dimensões. Após sua descrição no espaço do objeto o modelo é submetido a várias transformações e após todas as transformações é levado ao espaço de tela. Logo após ser levado ao espaço de tela é feita a rasterização e projeção das primitivas na tela.
 
 O pipeline gráfico consiste exatamente de uma sequência de passos necessários para transformar uma descrição geométrica/matemática de uma cena 3D em uma descrição visual na tela 2D. A imagem final é obtida por meio da rasterização das primitivas projetadas na tela. Basicamente, cada passo do pipeline gráfico consiste de uma transformação geométrica de um sistema de coordenadas (espaço) para outro, são eles :
 
 ![nice image](/icg/pipelinegrafico1.png)
 
-## Desenvolvimento
+### Desenvolvimento
 A primeira etapa feita nesse trabalho foi criar um biblioteca de funções. As funções criadas foram as seguintes:
 
 **multEscVet()**: que recebe um vetor e um escalar e retorna um vetor resultante da multiplicação daqueles;
@@ -165,7 +165,7 @@ Foley et al.; Computer Graphics – Principles and Practice with C; Addison-Wesl
 
 Slides do Profº Christian Pagot utilizados em aula
 
-## Trabalho 1 - Introdução
+## Trabalho 1
 Esse artigo constitui o relatório do primeiro projeto da disciplina de ICG, ministrada pelo Prof. Christian Pagot.
 
 A atividade propõe a criação de quatro funções: PutPixel, DrawLine, DrawTriangle e DrawFilledTriangle. As funções são baseadas em algoritmos de rasterização feita através de um framework disponibilizado pelo próprio professor, que simula o acesso a memória de vídeo.
@@ -176,7 +176,7 @@ Sendo assim, considerando que pixels são compostos por 4 canais, cada um com 8 
 
 ![useful image](/icg/rgba_text_logo@2x.png)
 
-## Função PutPixel
+### Função PutPixel
 
 A função recebe um objeto da classe vetor e outro da classe cor, cada elemento das classes compõem um pixel que é rasterizado através do ponteiro FBptr que aponta para o pixel (0,0) do framebuffer. O pixel possui 4 componentes RGBA que criam sua cor.
 
@@ -223,7 +223,7 @@ Após manipulação das variáveis para seus respectivos octantes obtemos o resu
 
 ![useful image 4](/icg/screenshot-from-2017-09-10-21-42-16-e1505099482973.png)
 
-## Interpolação de Cores
+### Interpolação de Cores
 
 A interpolação de cores pode ser implementada modificando a porcentagem da cor RGBA inicial e a porcentagem da cor RGBA final, resultando numa nova e substituindo-a em cada pixel escrito por vez ao longo da linha, como observado aqui. A porcentagem é calculada dividindo a distância total da linha pela distância parcial do pixel a ser escrito.
 
@@ -269,7 +269,7 @@ A função Distance foi criada para facilitar o calculo das distâncias entre pi
 
 ![useful image 5](/icg/cace1-distt.gif)
 
-## Função DrawTriangle
+### Função DrawTriangle
 
 A função recebe como parâmetro três vetores, e suas respectivas cores, a função cria um triângulo chamando a função DrawLine de um vetor a outro, formando um triângulo
 
@@ -287,7 +287,7 @@ Resultando em:
 
 ![useful image 6](/icg/screenshot-from-2017-09-10-22-25-42-e1505101771971.png)
 
-## Função DrawFilledTriangle
+### Função DrawFilledTriangle
 
 A função cria um triângulo preenchido, recebendo como parâmetro três vetores e suas respectivas cores. A função se trata da repetição da função DrawLine, porém ao escrever cada pixel, escreve uma linha que vai do pixel atual ao terceiro vetor do parâmetro.
 
@@ -305,7 +305,7 @@ DrawFilledTriangle(v1, v2, v3, red, blue, green);
  
  Também é possível criar uma função que simplesmente chama a função DrawFilledTriangle várias vezes, alternando os parâmetros de posição.
  
-## Referências
+### Referências
  
  [Drawing Line Using Bresenham Algorithm](http://tech-algorithm.com/articles/drawing-line-using-bresenham-algorithm/)
  
