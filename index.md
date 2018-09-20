@@ -151,9 +151,11 @@ Para efetuar a rotação nos eixos x, y, z da mascote, foram utilizadas suas res
 
 ![nice image 12](/icg/a11.png)
 
-No vídeo 1 é possível observar a rotação da mascote sendo efetuada nos três eixos ao redor da origem
+No vídeo é possível observar a rotação da mascote sendo efetuada nos três eixos ao redor da origem
 
+![nice image 13](/icg/a12.png)
 
+Confira o vídeo [aqui](https://youtu.be/fVnaGKCfnbg)
 
 ### Dificuldades
 Por mais incrível que possa parecer a maior dificuldade foi em implementar a rotação da mascote, pois inicialmente a matriz model estava sendo iniciada com a identidade e os valores de profundidade estavam sendo perdidos  na rotação apesar de ter seguido o pipeline corretamente. Além disso, houveram outras dificuldade que foram contornadas mais facilmente, como falhas de segmentação, desenho fora do ângulo de visão, etc.
